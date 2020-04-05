@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Kalambury</title>
+    <meta name="description" content="Kalambury">
+    <meta name="author" content="Piotr">
+
+    <link rel="stylesheet" href="kalambury.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row" >
+            <div class="col-12 text-center" >
+                <div class="h1 text-primary" >Kalambury</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <canvas id="canvas" class="border border-primary rounded" 
+                width="800" height="500"></canvas>
+            </div>
+            <div class="col-2">
+                <textarea id="messagesTextArea" readonly="readonly" rows="10" cols="45"></textarea>
+                <br>
+            
+                <input id="messageText" type="text" size="50" />
+                <input onclick="sendMessage();" value="Send Message" type="button" />
+            
+                <textarea id="randomText" readonly="readonly" rows="1" cols="20"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="../communication.js"></script>
+    <script src="kalambury.js"></script>
+    <script src="chat.js"></script>
+    <!-- Bootstrap JS. -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
