@@ -1,0 +1,65 @@
+#messagesTextArea {
+background-color: #cedcff;
+resize: none;
+border-color: #400080;
+-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+ padding: 10px;
+}
+#randomText {
+background-color: #f5ffc1;
+border: none; 
+resize: none;
+position:fixed;
+top:20px;
+-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+#messageText {
+background-color: #b6f7b3;
+border-color: #00d700;
+
+resize: none;
+ padding: 5px;
+height: 30px;
+-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+#send {
+background-color: #ffd2d3;
+ box-shadow: 3px 6px #888888;
+border-color: #ff80c0;
+ padding: 5px;
+height: 40px;
+-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+#next {
+background-color: #ffd2d3;
+ box-shadow: 3px 6px #888888;
+border-color: #ff80c0;
+ padding: 2px;
+height: 25px;
+width: 60px;
+position:fixed;
+top:45px;
+left:405px;
+-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 12px;
+  background-color: #cedcff; 
+   border-radius: 15px;
+   -webkit-box-shadow: inset 0 0 6px rgba(1, 1, 1, 0.1);}
+
+textarea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #4285f4; }
