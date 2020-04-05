@@ -1,5 +1,5 @@
 var websocket = new WebSocket(
-		"ws://localhost:8080/websockety3/serverendpointdemo");
+		"ws://localhost:8080/websocket/serverendpointdemo");
 websocket.onmessage = function rocessMessage(message) {
 	var jsonData = JSON.parse(message.data);
 	var word = "WORD";
