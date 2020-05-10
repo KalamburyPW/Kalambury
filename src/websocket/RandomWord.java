@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class RandomWord {
 
-	protected String randomizer() throws IOException {
+	protected String randomizer() {
 
 		InputStream inputStream;
 		InputStream inputStream2;

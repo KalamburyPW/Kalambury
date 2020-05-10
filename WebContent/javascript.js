@@ -5,7 +5,13 @@ websocket.onmessage = function rocessMessage(message) {
 	var word = "WORD";
 	var word2 = "abc";
 	var w = jsonData.type;
-	var text = jsonData.txt;
+	
+	if ((jsonData.txt&&text) == null){
+		text = "Zaczynamy?";
+	}
+	else{
+	text = jsonData.txt;
+	}
 	var mta = document.getElementById("messagesTextArea");
 
 	if (jsonData.message != null) {
@@ -24,9 +30,14 @@ websocket.onmessage = function rocessMessage(message) {
 
 function nextText() {
 	websocket.send("next");
+	sendMessageNull();
 }
 
 function sendMessage() {
 	websocket.send(messageText.value);
 	messageText.value = "";
+}
+function sendMessageNull() {
+	websocket.send("*Zmienił hasło*");
+	
 }

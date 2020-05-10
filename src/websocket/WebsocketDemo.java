@@ -21,24 +21,27 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/serverendpointdemo")
 public class WebsocketDemo extends RandomWord {
 	static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
-	String ran;
+	
+	 String ran=randomizer();
+	
 	String username;
 	@OnOpen
 	public void handleOpen(Session userSession) throws IOException {
 
 		chatroomUsers.add(userSession);
-		ran = randomizer();
+		
 	}
-
+	
 	@OnMessage
 	public void handleMessage(String message, Session userSession) throws Exception {
 		Iterator<Session> iterator = chatroomUsers.iterator();
 		username = (String) userSession.getUserProperties().get("username");
-		
+		//if(!message.isEmpty()) {
 		if (username == null && !message.contains("next")) {
 			String type = "abc";
+			
 			userSession.getUserProperties().put("username", message);
-			userSession.getBasicRemote().sendText(buildJsonData("System", "nowy uzytkownik: " + message, type, ran));
+			userSession.getBasicRemote().sendText(buildJsonData2("System", "nowy uzytkownik: " + message, type));
 
 		} else if (!message.equals(ran) && !message.contains("next")) {
 
@@ -61,7 +64,10 @@ public class WebsocketDemo extends RandomWord {
 				iterator.next().getBasicRemote()
 						.sendText(buildJsonData("System", "Brawo! chodzi³o o " + message, type, ran));
 		}
-	}
+		
+		}
+		
+	//}
 	private String buildJsonData(String username, String message, String type, String txt) {
 		JsonObjectBuilder jsonObject = Json.createObjectBuilder();
 		jsonObject.add("message", username + ": " + message);
@@ -71,6 +77,27 @@ public class WebsocketDemo extends RandomWord {
 		return jsonObject.build().toString();
 
 	}
+	private String buildJsonData2(String username, String message, String type) {
+		JsonObjectBuilder jsonObject = Json.createObjectBuilder();
+		jsonObject.add("message", username + ": " + message);
+		jsonObject.add("type", type);
+		
+
+		return jsonObject.build().toString();
+
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@OnClose
 	public void handleClose(Session userSession) {
